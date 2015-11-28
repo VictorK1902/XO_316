@@ -5,6 +5,7 @@ public class xoController : MonoBehaviour {
 	
 	public Animator anim;
 	public Rigidbody2D rbody;
+	SpriteRenderer spriteRenderer;
 	Vector2 directionBeforeBlocked;
 	Vector2 targetPoint;
 	
@@ -12,6 +13,7 @@ public class xoController : MonoBehaviour {
 	void Start () {
 		rbody = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
+		spriteRenderer = GetComponent<SpriteRenderer>();
 		anim.SetBool("isWalking", false);
 		anim.SetFloat ("input_x", 0.0f);
 		anim.SetFloat ("input_y", -1.0f);
@@ -19,6 +21,10 @@ public class xoController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (!anim.enabled) {
+			rbody.MovePosition(rbody.position);
+			return;
+		}
 		GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(transform.position.y)*(-1);
 		Vector2 movement = new Vector2 (Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 		if (movement != Vector2.zero) {
@@ -33,9 +39,21 @@ public class xoController : MonoBehaviour {
 		rbody.MovePosition (targetPoint);
 		
 	}
-	void OnCollisionEnter2D(Collision2D col)
-	{	
-
+	public void customDestroyCharacter(){
+		StartCoroutine (timer());
+	}
+	IEnumerator timer(){
+		anim.enabled = false;
+		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,1.0f); 
+		yield return new WaitForSeconds(0.2f);
+		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.75f); 
+		yield return new WaitForSeconds(0.2f);
+		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.5f); 
+		yield return new WaitForSeconds(0.2f);
+		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.25f); 
+		yield return new WaitForSeconds(0.2f);
+		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.0f); 
+		Destroy (gameObject);
 	}
 
 
