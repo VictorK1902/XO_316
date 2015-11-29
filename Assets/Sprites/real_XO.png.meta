@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b0acac72cfe51ba4896283c6c7bf542d
-timeCreated: 1448648863
+timeCreated: 1448755967
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -132,17 +132,17 @@ TextureImporter:
         x: 0
         y: 200
         width: 100
-        height: 200
+        height: 195
       alignment: 6
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 2}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: real_XO_7
       rect:
         serializedVersion: 2
         x: 100
         y: 200
         width: 100
-        height: 198
+        height: 195
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,37 +152,37 @@ TextureImporter:
         x: 200
         y: 200
         width: 100
-        height: 200
+        height: 195
       alignment: 6
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 2}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: real_XO_9
       rect:
         serializedVersion: 2
         x: 300
         y: 200
         width: 100
-        height: 200
+        height: 195
       alignment: 6
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 2}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: real_XO_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 100
-        height: 200
+        height: 192
       alignment: 6
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 3}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: real_XO_13
       rect:
         serializedVersion: 2
         x: 100
         y: 0
         width: 100
-        height: 197
+        height: 193
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,7 +192,7 @@ TextureImporter:
         x: 200
         y: 0
         width: 100
-        height: 197
+        height: 192
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
         x: 300
         y: 0
         width: 100
-        height: 200
+        height: 192
       alignment: 6
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 3}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

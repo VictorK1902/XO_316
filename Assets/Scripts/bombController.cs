@@ -6,9 +6,10 @@ public class bombController : MonoBehaviour {
 
 	public float timer = 2.0f;
 	List<RaycastHit2D> toBeDestroyed; // list of temp objects to be destroyed later when line-casting against other colliders on bomb path
-	int radius = 6; // bomb radius
+	int radius = 5; // bomb radius
 	// Use this for initialization
 	void Start () {
+		GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(transform.position.y)*(-1);
 		toBeDestroyed = new List<RaycastHit2D>();
 	}
 	
@@ -35,10 +36,10 @@ public class bombController : MonoBehaviour {
 
 		GameObject expCenter = Instantiate (Resources.Load ("Prefabs/explosion")) as GameObject;
 		expCenter.transform.position = bombpos;
-		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (radius*(-1.0f)-0.4f,0.0f,0.0f), "left", bombpos);
-		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (radius*(1.0f)+0.4f,0.0f,0.0f), "right", bombpos);
-		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (0.0f, radius*(1.0f)+0.4f,0.0f), "up", bombpos);
-		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (0.0f, radius*(-1.0f)-0.4f,0.0f), "down", bombpos);
+		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (radius*(-1.0f)-0.5f,0.0f,0.0f), "left", bombpos);
+		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (radius*(1.0f)+0.5f,0.0f,0.0f), "right", bombpos);
+		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (0.0f, radius*(1.0f)+0.5f,0.0f), "up", bombpos);
+		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (0.0f, radius*(-1.0f)-0.5f,0.0f), "down", bombpos);
 
 	}
 
@@ -47,9 +48,14 @@ public class bombController : MonoBehaviour {
 		Vector3 unitVector = findUnitVector(direction);
 		toBeDestroyed.Clear ();
 		// line cast all return all objects hit by the line from startPoint to endPoint
-		RaycastHit2D[] detectedObjects = Physics2D.LinecastAll(bombCenter, bombCenter + end);
+		// we do 2 times for proper gameplay purpose
 
-		if (detectedObjects.Length == 0) {
+		// A. Line cast no 1 - consider this as a main line cast as it will clear off most of things - since it is the first one
+		// terrains (destructible and non destructible) and bombs are perfectly aligned with virtual grid so 1st line cast will handle them for sure
+		Vector3 startPoint = findStartPointToLineCast (direction,bombCenter,0.2f);
+		RaycastHit2D[] detectedObjects_no1 = Physics2D.LinecastAll(startPoint, startPoint + end);
+
+		if (detectedObjects_no1.Length == 0) {
 			//No obstacles on the path - simply spawn the exp sprites
 			for (int i = 0, j=1; i < radius; i++){
 				GameObject explosionTempSprite = Instantiate (Resources.Load ("Prefabs/explosion")) as GameObject;
@@ -59,22 +65,23 @@ public class bombController : MonoBehaviour {
 		} else { // collide at least one obstacles
 			string obstacleTag = "";
 			bool notDone = true;
-			GameObject firstTerrainHit = detectedObjects[0].collider.gameObject; // will be updated
+			GameObject firstTerrainHit = detectedObjects_no1[0].collider.gameObject; // will be updated
 			int bombCountOnPath = 0; // use this to make sure that only the last bomb on the path gets to destroy destructible terrain
 
 			//1. we look for the first terrain hit - this is the boundary to spawn exp sprites
-			for (int i = 0; i < detectedObjects.Length && notDone;i++){
-				obstacleTag = detectedObjects[i].collider.gameObject.tag;
+			for (int i = 0; i < detectedObjects_no1.Length && notDone;i++){
+				obstacleTag = detectedObjects_no1[i].collider.gameObject.tag;
+				if (obstacleTag  == "character") Debug.Log("catch character by " + gameObject.name);
 				if (obstacleTag == "nonDestructible" || obstacleTag == "destructible"){
 					// if we find it - then we save its meta data to process later
-					spawnPos = calculateSpawnPosition(detectedObjects[i].collider.transform.position, direction);
-					firstTerrainHit = detectedObjects[i].collider.gameObject;
+					spawnPos = calculateSpawnPosition(detectedObjects_no1[i].collider.transform.position, direction);
+					firstTerrainHit = detectedObjects_no1[i].collider.gameObject;
 					notDone = false;
 				}
 				else { // items, monsters and character - possibly another bomb included - note that exp sprites dont have collider so they wont get caught here
 					if (obstacleTag == "bomb") 
 						bombCountOnPath++;	
-					toBeDestroyed.Add(detectedObjects[i]);
+					toBeDestroyed.Add(detectedObjects_no1[i]);
 				}
 			} 
 
@@ -106,6 +113,25 @@ public class bombController : MonoBehaviour {
 				destroyBasedOnTag(toBeDestroyed[i].collider.gameObject);
 			}
 		}
+
+		// B. Line cast no 2 - try to catch any obstacles not being caught yet. 
+		startPoint = findStartPointToLineCast (direction,bombCenter,-0.2f);
+		RaycastHit2D[] detectedObjects_no2 = Physics2D.LinecastAll(startPoint, startPoint + end);
+		// we dont need to spawn exp sprites again - just catch any monster not being caught yet on the path
+		if (detectedObjects_no2.Length != 0) {
+			string obstacleTag = "";
+			for (int i = 0; i < detectedObjects_no2.Length;i++){
+				obstacleTag = detectedObjects_no2[i].collider.gameObject.tag;
+				if (obstacleTag == "nonDestructible" || obstacleTag == "destructible" || obstacleTag == "bomb"){
+					// do nothing 
+					// these objects are definitely already handled during the first cast because they are perfectly aligned with grid snap
+				}
+				else { // items, monsters and character 
+					destroyBasedOnTag(detectedObjects_no2[i].collider.gameObject);
+				}
+			} 
+		}
+
 	} // end
 
 
@@ -146,5 +172,11 @@ public class bombController : MonoBehaviour {
 		}
 		return result;
 	} // end
+	Vector3 findStartPointToLineCast(string direction, Vector3 input, float offset){
+		if (direction == "left" || direction == "right") 
+			return (input + new Vector3(0.0f,offset,0.0f));
+		else
+			return (input + new Vector3(offset,0.0f,0.0f));
+	}
 
 } // end class

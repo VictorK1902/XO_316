@@ -7,7 +7,7 @@ public class explosionController : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+		GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(transform.position.y)*(-1)-1;
 	}
 	
 	// Update is called once per frame
