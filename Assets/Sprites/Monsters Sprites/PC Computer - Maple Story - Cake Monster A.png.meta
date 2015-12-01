@@ -1,0 +1,298 @@
+fileFormatVersion: 2
+guid: 5e34b912bdc064a4ca09cc4211f98d98
+timeCreated: 1448943343
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PC Computer - Maple Story - Cake Monster A_0
+    21300002: PC Computer - Maple Story - Cake Monster A_1
+    21300004: PC Computer - Maple Story - Cake Monster A_2
+    21300006: PC Computer - Maple Story - Cake Monster A_3
+    21300008: PC Computer - Maple Story - Cake Monster A_4
+    21300010: PC Computer - Maple Story - Cake Monster A_5
+    21300012: PC Computer - Maple Story - Cake Monster A_6
+    21300014: PC Computer - Maple Story - Cake Monster A_7
+    21300016: PC Computer - Maple Story - Cake Monster A_11
+    21300018: PC Computer - Maple Story - Cake Monster A_12
+    21300020: PC Computer - Maple Story - Cake Monster A_13
+    21300022: PC Computer - Maple Story - Cake Monster A_14
+    21300024: PC Computer - Maple Story - Cake Monster A_15
+    21300026: PC Computer - Maple Story - Cake Monster A_17
+    21300028: PC Computer - Maple Story - Cake Monster A_20
+    21300030: PC Computer - Maple Story - Cake Monster A_21
+    21300032: PC Computer - Maple Story - Cake Monster A_22
+    21300034: PC Computer - Maple Story - Cake Monster A_24
+    21300036: PC Computer - Maple Story - Cake Monster A_26
+    21300038: PC Computer - Maple Story - Cake Monster A_27
+    21300040: PC Computer - Maple Story - Cake Monster A_28
+    21300042: PC Computer - Maple Story - Cake Monster A_29
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 60
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PC Computer - Maple Story - Cake Monster A_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_2
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_4
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_5
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_6
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_7
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_11
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 122
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_12
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 122
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_13
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 122
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_14
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 122
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_15
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 122
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_17
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 122
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_20
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_21
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 0
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_22
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 0
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_24
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_26
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 0
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_27
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 0
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_28
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 0
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PC Computer - Maple Story - Cake Monster A_29
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 0
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
