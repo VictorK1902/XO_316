@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// controller script for explosion sprite - simply got destroyed after timer = 0.65f
+
 public class explosionController : MonoBehaviour {
 
 	float timer = 0.65f;

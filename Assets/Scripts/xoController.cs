@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// controller script for main character
+
 public class xoController : MonoBehaviour {
 	
 	public Animator anim;
 	public Rigidbody2D rbody;
-	public bool destroyIsChecked = false;
+	public bool destroyIsChecked = false; // a flag to make sure that only one instance of bomb/monster get to trigger death of character 
+											// in case multiple boms/monster try to destroy character 
+
 	SpriteRenderer spriteRenderer;
 	Vector2 directionBeforeBlocked;
-	Vector2 targetPoint;
-	
+	Vector2 targetPoint; // point to move to
+	public int maxBomb = 1;
+		
 	// Use this for initialization
 	void Start () {
 		rbody = GetComponent<Rigidbody2D> ();
@@ -22,11 +27,19 @@ public class xoController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(transform.position.y)*(-1);
+		// 1. Bomb key detect
+		if (Input.GetKeyDown ("space")) {
+			GameObject dBomb = Instantiate (Resources.Load ("Prefabs/bomb")) as GameObject;
+			dBomb.transform.position = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),0.0f);
+			dBomb.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(dBomb.transform.position.y)*(-1);
+		}
+
+		// 2. movement detect and handling
 		if (!anim.enabled) {
 			rbody.MovePosition(rbody.position);
 			return;
 		}
-		GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(transform.position.y)*(-1);
 		Vector2 movement = new Vector2 (Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 		if (movement != Vector2.zero) {
 			anim.SetBool ("isWalking", true);
@@ -35,7 +48,7 @@ public class xoController : MonoBehaviour {
 		} else {
 			anim.SetBool("isWalking", false);
 		}
-		targetPoint = rbody.position + movement * 0.04f;
+		targetPoint = rbody.position + movement * GlobalVars.speed;
 		//Debug.Log (targetPoint);
 		rbody.MovePosition (targetPoint);
 		
@@ -57,6 +70,13 @@ public class xoController : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
+	void OnCollisionEnter2D(Collision2D coll) {
+		Debug.Log ("Player collided with "+coll.collider.name + "-" +coll.collider.tag);
+		if (coll.gameObject.tag == "monster") {
+			customDestroyCharacter ();
+		}
+		
+	}
 
 
 

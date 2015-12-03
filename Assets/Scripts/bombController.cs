@@ -4,65 +4,83 @@ using System.Collections.Generic;
 
 public class bombController : MonoBehaviour {
 
-	public float timer = 2.0f;
+	public float timer;
 	List<GameObject> toBeDestroyed; // list of temp objects to be destroyed later when line-casting against other colliders on bomb path
-	int radius = 5; // bomb radius
+	int radius = 0; // bomb radius
 	bool isTriggeredByDef;
 	float timedecrease;
 	public bool destroyIsChecked = false;
+
 	// Use this for initialization
 	void Start () {
+		GetComponent<CircleCollider2D> ().enabled = false;
 		GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(transform.position.y)*(-1);
-		toBeDestroyed = GameObject.Find ("GlobalVars").GetComponent<GlobalVars> ().objectsToBeDestroyed;
-		isTriggeredByDef = false;
+		isTriggeredByDef = true;
 		timedecrease = Time.deltaTime;
+
+		// set up bomb detonation controll variables
+		toBeDestroyed = GlobalVars.objectsToBeDestroyed;
+		radius = GlobalVars.bombRadius;
+		timer = GlobalVars.bombTimer;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (GameObject.Find ("XO_character") != null) {
+			if (Vector2.Distance(GameObject.Find("XO_character").transform.position, transform.position)>=0.6)
+				GetComponent<CircleCollider2D> ().enabled = true;
+		}
+		else 
+			GetComponent<CircleCollider2D> ().enabled = true;
+
 		timer -= timedecrease;
 		//Debug.Log (Time.deltaTime +" - "+timer);
 		if (timer < 0.0f) {
-			Debug.Log ("Bom triggered by default");
-			customDestroyBomb(true);
+			Debug.Log (gameObject.name +" is triggered by default");
+			customDestroyBomb(true, false, false, false, false, false);
 		}
 	}
 
-	public void customDestroyBomb(bool triggerByDefault){
+	public void customDestroyBomb(bool triggerByDefault, bool skipCenter, bool skipLeft, bool skipRight, bool skipUp, bool skipDown){
+		// update whether this bomb detonate by default or by chain bombing
 		isTriggeredByDef = triggerByDefault;
 		Debug.Log ("this is obj "+ gameObject.name + " - " + triggerByDefault.ToString() +"-"+isTriggeredByDef.ToString());
 		if (!isTriggeredByDef)
-			timedecrease = 0.0f; // turn off bomb timing
+			timedecrease = 0.0f; // turn off bomb timing - to avoid calling customdestroy more than once
 		Debug.Log ("About to destroy: "+ gameObject.name);
 		gameObject.SetActive(false);
-		spawnExplosionSprite();
+		spawnExplosionSprite(skipCenter, skipLeft, skipRight, skipUp, skipDown);
 		Destroy(gameObject);
 	}
 
-	void spawnExplosionSprite(){
+	void spawnExplosionSprite(bool skipCenter, bool skipLeft, bool skipRight, bool skipUp, bool skipDown){
 		Vector3 bombpos = transform.position;
 		Vector3 bombCenter = bombpos + new Vector3(0.5f,0.5f,0.0f);
 
-		GameObject expCenter = Instantiate (Resources.Load ("Prefabs/explosion")) as GameObject;
-		expCenter.transform.position = bombpos;
-		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (radius*(-1.0f)-0.4f,0.0f,0.0f), "left", bombpos);
-		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (radius*(1.0f)+0.4f,0.0f,0.0f), "right", bombpos);
-		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (0.0f, radius*(1.0f)+0.4f,0.0f), "up", bombpos);
-		SpawnExplosionInGivenDirection (bombCenter, new Vector3 (0.0f, radius*(-1.0f)-0.4f,0.0f), "down", bombpos);
-		Debug.Log ("Rolling out. This is gameobject "+ gameObject.name);
-		Debug.Log ("WTF "+isTriggeredByDef.ToString());
-		GameObject.Find ("GlobalVars").GetComponent<GlobalVars> ().currentBombCount--;
-		if (GameObject.Find ("GlobalVars").GetComponent<GlobalVars> ().currentBombCount == 0) {
-			Debug.Log ("inLoop1");
+		// these skip flags are used to avoid creating too many dup exp sprites
+		if (!skipCenter) {
+			GameObject expCenter = Instantiate (Resources.Load ("Prefabs/explosion")) as GameObject;
+			expCenter.transform.position = bombpos;
+			expCenter.name = gameObject.name + " exp center";
+		}
+		if (!skipLeft)
+			SpawnExplosionInGivenDirection (bombCenter, new Vector3 (radius*(-1.0f)-0.4f,0.0f,0.0f), "left", bombpos);
+		if (!skipRight)
+			SpawnExplosionInGivenDirection (bombCenter, new Vector3 (radius*(1.0f)+0.4f,0.0f,0.0f), "right", bombpos);
+		if (!skipUp)
+			SpawnExplosionInGivenDirection (bombCenter, new Vector3 (0.0f, radius*(1.0f)+0.4f,0.0f), "up", bombpos);
+		if (!skipDown)
+			SpawnExplosionInGivenDirection (bombCenter, new Vector3 (0.0f, radius*(-1.0f)-0.4f,0.0f), "down", bombpos);
+
+		Debug.Log ("Rolling out. This is gameobject "+ gameObject.name + " and it is root bomb? "+isTriggeredByDef.ToString());
+		if (isTriggeredByDef) { // meaning this is the root bomb that starts the chain bomb
 			string dtag = "";
+			Debug.Log("This is "+gameObject.name +" about to destroy " + toBeDestroyed.Count + " objects in <static> toBeDestroyed");
 			for (int i = 0; i <toBeDestroyed.Count; i++) {
-				Debug.Log ("inLoop2");
 				dtag = toBeDestroyed [i].tag;
 				if (dtag == "monster" || dtag == "item" || dtag == "character") {
-					Debug.Log ("inLoop3");
 					destroyBasedOnTag (toBeDestroyed [i]);
 				} else if (dtag == "destructible") {
-					Debug.Log ("inLoop4");
 					// spawn explosion sprite for wood block
 					toBeDestroyed [i].SetActive (false); // hide it first
 					GameObject tmp1 = Instantiate (Resources.Load ("Prefabs/blockExplosion")) as GameObject;
@@ -70,29 +88,24 @@ public class bombController : MonoBehaviour {
 					Destroy (toBeDestroyed [i]);
 				}
 			}
-		} 
-		else 
-			GameObject.Find ("GlobalVars").GetComponent<GlobalVars> ().currentBombCount--;
-		
-
+			toBeDestroyed.Clear();
+			Debug.Log("This is "+gameObject.name + ". And toBeDestroyed is cleared");
+		}
 	}
 
 	void SpawnExplosionInGivenDirection(Vector3 bombCenter, Vector3 end, string direction, Vector3 bombPos){
 		Vector3 spawnPos = Vector3.zero;
 		Vector3 unitVector = findUnitVector(direction);
-		// used in different cases variables
-		//GameObject firstTerrainHit; // will be updated
-		//int bombCountOnPath = 0; // used in case of multiple bombs on path
-								// to make sure that only the last bomb on the path gets to destroy destructible terrain
+
 		Vector3 firstHitDestructiblePos = Vector3.zero; // used in case of theres destructible hit - to make sure 2nd 
 														// line cast doesnt go pass this point
-		GameObject tmp;
-		// line cast all return all objects hit by the line from startPoint to endPoint
+
+		// LineCastAll return all objects hit by the line from startPoint to endPoint
 		// we do 2 times for proper gameplay purpose
 
-		// A. Line cast no 1 - consider this as a main line cast as it will detect most of things - since it is the first one
+		// A. Line cast no 1 - consider this as a main line cast as it will detect most of things 
 		// terrains (destructible and non destructible) and bombs are perfectly aligned with virtual grid, so 1st line cast will handle them for sure
-		Vector3 startPoint = findStartPointToLineCast (direction,bombCenter,0.2f);
+		Vector3 startPoint = findStartPointToLineCast (direction,bombCenter,0.15f);
 		RaycastHit2D[] detectedObjects_no1 = Physics2D.LinecastAll(startPoint, startPoint + end);
 
 		if (detectedObjects_no1.Length == 0) {
@@ -100,28 +113,28 @@ public class bombController : MonoBehaviour {
 			for (int i = 0, j=1; i < radius; i++){
 				GameObject explosionTempSprite = Instantiate (Resources.Load ("Prefabs/explosion")) as GameObject;
 				explosionTempSprite.transform.position = bombPos + new Vector3 (j * unitVector.x, j * unitVector.y, 0.0f);
+				explosionTempSprite.name = gameObject.name + " exp " + direction + " - "+ i;
 				j++;
 			}
 		} else { // collide at least one obstacles
 			string obstacleTag = "";
 			bool notDone = true;
 
-			// used in different cases variables
-			//firstTerrainHit = detectedObjects_no1[0].collider.gameObject; // will be updated
 			firstHitDestructiblePos = Vector3.zero; // used in case of theres destructible hit - to make sure 2nd line cast doesnt go pass this point
 
 			//1. we look for the first terrain hit - this is the boundary to spawn exp sprites
 			for (int i = 0; i < detectedObjects_no1.Length && notDone;i++){
 				obstacleTag = detectedObjects_no1[i].collider.gameObject.tag;
 				if (obstacleTag == "nonDestructible" || obstacleTag == "destructible"){
-					spawnPos = calculateSpawnPosition(detectedObjects_no1[i].collider.transform.position, direction);
+					spawnPos = detectedObjects_no1[i].collider.transform.position - unitVector;//calculateSpawnPosition(detectedObjects_no1[i].collider.transform.position, direction);
 					if (obstacleTag == "destructible"){
-						tmp = detectedObjects_no1[i].collider.gameObject;
+						GameObject tmp = detectedObjects_no1[i].collider.gameObject;
 						firstHitDestructiblePos = tmp.transform.position;
-						if (!tmp.GetComponent<Destroy>().destroyIsChecked){
+						if (!tmp.GetComponent<Destroy>().destroyIsChecked){ // flag to make sure the object added to the tobedestroyed list only once
 							tmp.GetComponent<Destroy>().destroyIsChecked = true;
-							Debug.Log ("Adding "+tmp.name +" from "+ gameObject.name);
 							toBeDestroyed.Add(tmp);
+							Debug.Log ("1st cast - Adding "+tmp.name +" from "+ gameObject.name+". Success - new list length "+ toBeDestroyed.Count);
+							//printList(toBeDestroyed);
 						}
 					}
 					notDone = false;
@@ -132,25 +145,34 @@ public class bombController : MonoBehaviour {
 					notDone = false;
 				}
 				else if (obstacleTag == "monster" || obstacleTag == "item"){
-					tmp = detectedObjects_no1[i].collider.gameObject;
-					if (!tmp.GetComponent<Destroy>().destroyIsChecked){
+					GameObject tmp = detectedObjects_no1[i].collider.gameObject;
+					if (!tmp.GetComponent<Destroy>().destroyIsChecked){ // flag to make sure the object added to the tobedestroyed list only once
 						tmp.GetComponent<Destroy>().destroyIsChecked = true;
-						Debug.Log ("Adding "+tmp.name +" from "+ gameObject.name);
 						toBeDestroyed.Add(tmp);
+						Debug.Log ("1st cast - Adding "+tmp.name +" from "+ gameObject.name+". Success - new list length "+ toBeDestroyed.Count);
+						//printList(toBeDestroyed);
 					}
 				}
 				else if (obstacleTag == "character") {
-					tmp = detectedObjects_no1[i].collider.gameObject;
-					if (!tmp.GetComponent<xoController>().destroyIsChecked){
+					GameObject tmp = detectedObjects_no1[i].collider.gameObject;
+					if (!tmp.GetComponent<xoController>().destroyIsChecked){ // flag to make sure the object added to the tobedestroyed list only once
 						tmp.GetComponent<xoController>().destroyIsChecked = true;
-						Debug.Log ("Adding "+tmp.name +" from "+ gameObject.name);
 						toBeDestroyed.Add(tmp);
+						Debug.Log ("1st cast - Adding "+tmp.name +" from "+ gameObject.name+". Success - new list length "+ toBeDestroyed.Count);
+						//printList(toBeDestroyed);
 					}
 				}
 				else if (obstacleTag == "bomb") {
-					if (!detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().destroyIsChecked) {
+					if (!detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().destroyIsChecked) { // flag to make sure the object is destroyed only once
 						detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().destroyIsChecked = true;
-						detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false);
+						if (direction == "left")
+							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false, true, false, true, false, false);
+						else if (direction == "right")
+							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false, true, true, false, false, false);
+						else if (direction == "up")
+							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false, true, false, false, false, true);
+						else // down
+							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false, true, false, false, true, false);
 					}
 				}
 				else { 
@@ -169,34 +191,17 @@ public class bombController : MonoBehaviour {
 			for (int i = 0, j=1; i < count; i++){
 				GameObject explosionTempSprite = Instantiate (Resources.Load ("Prefabs/explosion")) as GameObject;
 				explosionTempSprite.transform.position = bombPos + new Vector3 (j * unitVector.x, j * unitVector.y, 0.0f);
+				explosionTempSprite.name = gameObject.name + " exp " + direction + " - "+ i;
 				j++;
 			}
-
-			// we change how we destroy stuffs 
-			/* also we spawn exp sprite for destructible terrain block - only if this bomb is the last or only on the path in given direction
-			if (obstacleTag == "destructible" && bombCountOnPath == 0){
-				// spawn explosion sprite for wood block
-				firstTerrainHit.SetActive(false); // hide it first
-				GameObject tmp1 = Instantiate(Resources.Load("Prefabs/blockExplosion")) as GameObject;
-				tmp1.transform.position = firstTerrainHit.transform.position;			
-				firstHitDestructiblePos = firstTerrainHit.transform.position;
-				Destroy (firstTerrainHit);
-			}
-
-			// 3. Now we destroy any monster or character in between - or bomb
-			for (int i = 0; i < toBeDestroyed.Count; i++){
-				// we need to call customDestroy 
-				destroyBasedOnTag(toBeDestroyed[i].collider.gameObject);
-			}
-			*/
 		}
 
 		// B. Line cast no 2 - try to catch any obstacles not being caught yet. 
 		// if we catch a destructible the first time --> limit the radius to make sure line cast stay within this range
-		startPoint = findStartPointToLineCast (direction,bombCenter,-0.2f);
+		startPoint = findStartPointToLineCast (direction,bombCenter,-0.15f);
 		if (firstHitDestructiblePos != Vector3.zero) {
 			Vector3 newEnd = firstHitDestructiblePos - bombPos + new Vector3(unitVector.x*0.4f,unitVector.y*0.4f,0.0f);
-			Debug.Log(bombPos.ToString("F3") + "-" + firstHitDestructiblePos.ToString("F3") + "-" + newEnd.ToString("F3"));
+			Debug.Log("2nd line cast from "+gameObject.name+" "+bombPos.ToString("F3") + "-" + firstHitDestructiblePos.ToString("F3") + "-" + newEnd.ToString("F3"));
 			end = newEnd;
 		}
 		RaycastHit2D[] detectedObjects_no2 = Physics2D.LinecastAll(startPoint, startPoint + end);
@@ -209,19 +214,21 @@ public class bombController : MonoBehaviour {
 					// do nothing - as these objects are definitely already handled during the first cast because they are perfectly aligned with grid snap
 				}
 				else if (obstacleTag == "monster" || obstacleTag == "item"){
-					tmp = detectedObjects_no1[i].collider.gameObject;
+					GameObject tmp = detectedObjects_no2[i].collider.gameObject;
 					if (!tmp.GetComponent<Destroy>().destroyIsChecked){
 						tmp.GetComponent<Destroy>().destroyIsChecked = true;
-						Debug.Log ("Adding "+tmp.name +" from "+ gameObject.name);
 						toBeDestroyed.Add(tmp);
+						Debug.Log ("2nd cast - Adding "+tmp.name +" from "+ gameObject.name+". Success - new list length "+ toBeDestroyed.Count);
+						//printList(toBeDestroyed);
 					}
 				}
 				else if (obstacleTag == "character") {
-					tmp = detectedObjects_no1[i].collider.gameObject;
+					GameObject tmp = detectedObjects_no2[i].collider.gameObject;
 					if (!tmp.GetComponent<xoController>().destroyIsChecked){
 						tmp.GetComponent<xoController>().destroyIsChecked = true;
-						Debug.Log ("Adding "+tmp.name +" from "+ gameObject.name);
 						toBeDestroyed.Add(tmp);
+						Debug.Log ("2nd cast - Adding "+tmp.name +" from "+ gameObject.name+". Success - new list length "+ toBeDestroyed.Count);
+						//printList(toBeDestroyed);
 					}
 				}
 				else { 
@@ -229,7 +236,6 @@ public class bombController : MonoBehaviour {
 				}
 			} 
 		} // done
-
 	} // end
 
 
@@ -240,10 +246,11 @@ public class bombController : MonoBehaviour {
 		if (theObject.tag == "character")
 			theObject.GetComponent<xoController> ().customDestroyCharacter ();
 		else { // items and monsters
-			Debug.Log(theObject.ToString());
+			Debug.Log("Inside destroyBasedOnTag - is destroying object with name "+theObject.ToString());
 			theObject.GetComponent<Destroy> ().triggerDeath ();
 		}
 	}
+	/*
 	Vector3 calculateSpawnPosition(Vector3 givenPoint, string direction){
 		Vector3 result = Vector3.zero;
 		if (direction == "left"){
@@ -257,6 +264,7 @@ public class bombController : MonoBehaviour {
 		}
 		return result;
 	} // end
+	*/
 	Vector3 findUnitVector(string direction){
 		Vector3 result = Vector3.zero;
 		if (direction == "left"){
@@ -276,17 +284,10 @@ public class bombController : MonoBehaviour {
 		else
 			return (input + new Vector3(offset,0.0f,0.0f));
 	}
-	Vector3 findNewEndPointOfLineCast(string direction, Vector3 diff, Vector3 oldEnd){
-		Vector3 newEnd = Vector3.zero;
-		if (direction == "left") {
-			//newEnd = new Vector3( oldEnd.x + newDist, oldEnd.y, 0.0f);
-		} else if (direction == "right") {
-
-		} else if (direction == "up") {
-
-		} else { //down
-
-		}
-		return newEnd;
+	void printList(List<GameObject> inputList){
+		string res ="";
+		for (int i =0; i<inputList.Count; i++)
+			res = res +inputList[i]+"\n";
+		Debug.Log (res);
 	}
 } // end class
