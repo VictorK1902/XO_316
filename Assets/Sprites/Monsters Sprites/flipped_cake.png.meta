@@ -1,0 +1,298 @@
+fileFormatVersion: 2
+guid: da34960dfdfac264587be7a20e445604
+timeCreated: 1449551459
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: flipped_cake_3
+    21300002: flipped_cake_4
+    21300004: flipped_cake_5
+    21300006: flipped_cake_6
+    21300008: flipped_cake_7
+    21300010: flipped_cake_8
+    21300012: flipped_cake_9
+    21300014: flipped_cake_10
+    21300016: flipped_cake_11
+    21300018: flipped_cake_12
+    21300020: flipped_cake_13
+    21300022: flipped_cake_14
+    21300024: flipped_cake_15
+    21300026: flipped_cake_16
+    21300028: flipped_cake_18
+    21300030: flipped_cake_20
+    21300032: flipped_cake_21
+    21300034: flipped_cake_23
+    21300036: flipped_cake_24
+    21300038: flipped_cake_25
+    21300040: flipped_cake_26
+    21300042: flipped_cake_27
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 6
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 60
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: flipped_cake_3
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_4
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_6
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_7
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_8
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_9
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_10
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_11
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_12
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_13
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_14
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_15
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_16
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_18
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_20
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_21
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_23
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_24
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_25
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_26
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake_27
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

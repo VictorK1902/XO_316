@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 5e34b912bdc064a4ca09cc4211f98d98
-timeCreated: 1448943343
+guid: 71c7ae82797d19e4c9b730fb6e250705
+timeCreated: 1449553383
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PC Computer - Maple Story - Cake Monster A_0
-    21300002: PC Computer - Maple Story - Cake Monster A_1
-    21300004: PC Computer - Maple Story - Cake Monster A_2
-    21300006: PC Computer - Maple Story - Cake Monster A_3
-    21300008: PC Computer - Maple Story - Cake Monster A_4
-    21300010: PC Computer - Maple Story - Cake Monster A_5
-    21300012: PC Computer - Maple Story - Cake Monster A_6
-    21300014: PC Computer - Maple Story - Cake Monster A_7
-    21300016: PC Computer - Maple Story - Cake Monster A_11
-    21300018: PC Computer - Maple Story - Cake Monster A_12
-    21300020: PC Computer - Maple Story - Cake Monster A_13
-    21300022: PC Computer - Maple Story - Cake Monster A_14
-    21300024: PC Computer - Maple Story - Cake Monster A_15
-    21300026: PC Computer - Maple Story - Cake Monster A_17
-    21300028: PC Computer - Maple Story - Cake Monster A_20
-    21300030: PC Computer - Maple Story - Cake Monster A_21
-    21300032: PC Computer - Maple Story - Cake Monster A_22
-    21300034: PC Computer - Maple Story - Cake Monster A_24
-    21300036: PC Computer - Maple Story - Cake Monster A_26
-    21300038: PC Computer - Maple Story - Cake Monster A_27
-    21300040: PC Computer - Maple Story - Cake Monster A_28
-    21300042: PC Computer - Maple Story - Cake Monster A_29
+    21300000: flipped_cake - boss_3
+    21300002: flipped_cake - boss_4
+    21300004: flipped_cake - boss_5
+    21300006: flipped_cake - boss_6
+    21300008: flipped_cake - boss_7
+    21300010: flipped_cake - boss_8
+    21300012: flipped_cake - boss_9
+    21300014: flipped_cake - boss_10
+    21300016: flipped_cake - boss_11
+    21300018: flipped_cake - boss_12
+    21300020: flipped_cake - boss_13
+    21300022: flipped_cake - boss_14
+    21300024: flipped_cake - boss_15
+    21300026: flipped_cake - boss_16
+    21300028: flipped_cake - boss_19
+    21300030: flipped_cake - boss_20
+    21300032: flipped_cake - boss_21
+    21300034: flipped_cake - boss_23
+    21300036: flipped_cake - boss_24
+    21300038: flipped_cake - boss_25
+    21300040: flipped_cake - boss_26
+    21300042: flipped_cake - boss_27
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -72,221 +72,221 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: PC Computer - Maple Story - Cake Monster A_0
+    - name: flipped_cake - boss_3
       rect:
         serializedVersion: 2
-        x: 10
+        x: 216
         y: 181
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_1
+    - name: flipped_cake - boss_4
       rect:
         serializedVersion: 2
-        x: 70
+        x: 279
         y: 181
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_2
+    - name: flipped_cake - boss_5
       rect:
         serializedVersion: 2
-        x: 133
+        x: 339
         y: 181
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_3
+    - name: flipped_cake - boss_6
       rect:
         serializedVersion: 2
-        x: 194
+        x: 400
         y: 181
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_4
+    - name: flipped_cake - boss_7
       rect:
         serializedVersion: 2
-        x: 253
+        x: 460
         y: 181
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_5
+    - name: flipped_cake - boss_8
       rect:
         serializedVersion: 2
-        x: 315
+        x: 521
         y: 181
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_6
+    - name: flipped_cake - boss_9
       rect:
         serializedVersion: 2
-        x: 374
+        x: 583
         y: 181
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_7
+    - name: flipped_cake - boss_10
       rect:
         serializedVersion: 2
-        x: 436
+        x: 646
         y: 181
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_11
+    - name: flipped_cake - boss_11
       rect:
         serializedVersion: 2
-        x: 10
-        y: 122
+        x: 316
+        y: 121
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_12
+    - name: flipped_cake - boss_12
       rect:
         serializedVersion: 2
-        x: 73
-        y: 122
+        x: 388
+        y: 121
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_13
+    - name: flipped_cake - boss_13
       rect:
         serializedVersion: 2
-        x: 137
-        y: 122
+        x: 452
+        y: 121
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_14
+    - name: flipped_cake - boss_14
       rect:
         serializedVersion: 2
-        x: 201
-        y: 122
+        x: 518
+        y: 121
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_15
+    - name: flipped_cake - boss_15
       rect:
         serializedVersion: 2
-        x: 269
-        y: 122
+        x: 581
+        y: 121
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_17
+    - name: flipped_cake - boss_16
       rect:
         serializedVersion: 2
-        x: 336
-        y: 122
+        x: 644
+        y: 121
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_20
+    - name: flipped_cake - boss_19
       rect:
         serializedVersion: 2
-        x: 84
-        y: 0
-        width: 60
-        height: 60
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_21
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 0
-        width: 60
-        height: 60
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_22
-      rect:
-        serializedVersion: 2
-        x: 233
-        y: 0
-        width: 60
-        height: 60
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_24
-      rect:
-        serializedVersion: 2
-        x: 315
+        x: 14
         y: 1
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_26
+    - name: flipped_cake - boss_20
       rect:
         serializedVersion: 2
-        x: 398
-        y: 0
+        x: 92
+        y: 1
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_27
+    - name: flipped_cake - boss_21
       rect:
         serializedVersion: 2
-        x: 479
-        y: 0
+        x: 176
+        y: 1
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_28
+    - name: flipped_cake - boss_23
       rect:
         serializedVersion: 2
-        x: 564
-        y: 0
+        x: 261
+        y: 1
         width: 60
         height: 60
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PC Computer - Maple Story - Cake Monster A_29
+    - name: flipped_cake - boss_24
       rect:
         serializedVersion: 2
-        x: 646
-        y: 0
+        x: 340
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake - boss_25
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake - boss_26
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_cake - boss_27
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 1
         width: 60
         height: 60
       alignment: 6

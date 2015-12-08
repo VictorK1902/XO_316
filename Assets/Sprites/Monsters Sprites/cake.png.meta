@@ -1,0 +1,298 @@
+fileFormatVersion: 2
+guid: 330f8a2303373ad4e80e536ddd4e6fbc
+timeCreated: 1449551212
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: cake_0
+    21300002: cake_1
+    21300004: cake_2
+    21300006: cake_3
+    21300008: cake_4
+    21300010: cake_5
+    21300012: cake_6
+    21300014: cake_7
+    21300016: cake_11
+    21300018: cake_12
+    21300020: cake_13
+    21300022: cake_14
+    21300024: cake_15
+    21300026: cake_16
+    21300028: cake_20
+    21300030: cake_21
+    21300032: cake_23
+    21300034: cake_24
+    21300036: cake_25
+    21300038: cake_26
+    21300040: cake_28
+    21300042: cake_29
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 60
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: cake_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_2
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_4
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_5
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_6
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_7
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_11
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_12
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_13
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_14
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_15
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_16
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_20
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_21
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_23
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_24
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_25
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_26
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_28
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake_29
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

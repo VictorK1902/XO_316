@@ -28,7 +28,7 @@ public class xoController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(transform.position.y)*(-1);
-		// 1. Bomb key detect
+		// 1. Detect if player hits spacebar --> place a bomb
 		if (Input.GetKeyDown ("space")) {
 			GameObject dBomb = Instantiate (Resources.Load ("Prefabs/bomb")) as GameObject;
 			dBomb.transform.position = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),0.0f);
@@ -48,15 +48,17 @@ public class xoController : MonoBehaviour {
 		} else {
 			anim.SetBool("isWalking", false);
 		}
-		targetPoint = rbody.position + movement * GlobalVars.speed;
+		targetPoint = rbody.position + movement * GlobalVars.xoSpeed;
 		//Debug.Log (targetPoint);
-		rbody.MovePosition (targetPoint);
-		
+		rbody.MovePosition (targetPoint);		
 	}
+
 	public void customDestroyCharacter(){
-		StartCoroutine (timer());
+		GetComponent<CircleCollider2D> ().enabled = false;
+		StartCoroutine (timerDestroy());
 	}
-	IEnumerator timer(){
+
+	IEnumerator timerDestroy(){
 		anim.enabled = false;
 		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.8f); 
 		yield return new WaitForSeconds(0.25f);
@@ -74,8 +76,7 @@ public class xoController : MonoBehaviour {
 		Debug.Log ("Player collided with "+coll.collider.name + "-" +coll.collider.tag);
 		if (coll.gameObject.tag == "monster") {
 			customDestroyCharacter ();
-		}
-		
+		}		
 	}
 
 

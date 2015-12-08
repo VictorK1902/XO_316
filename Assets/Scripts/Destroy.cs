@@ -2,15 +2,15 @@
 using System.Collections;
 
 // A destroy interface used by monster, item and destructibel terrain
+// even though destructible terrain barely used this - it only used the destroyischecked flag
 
 public class Destroy : MonoBehaviour {
 
-	bool isMonster, isItem, isDestructibleTerrain; // only one should be true per gameobject using this 
+	public bool isMonster, isItem, isDestructibleTerrain; // only one should be true per gameobject using this 
 	public bool destroyIsChecked;
 	public bool hasDeadAnim;
 	// Use this for initialization
 	void Start () {
-		GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(transform.position.y)*(-1);
 		// define proper flag for this object because 3 types of object use it: monster, item, and destructible terrain block
 		// nondestructible terrain simply use a rendering object script to determine sorting order during run time
 		if (gameObject.tag == "monster")
@@ -28,22 +28,62 @@ public class Destroy : MonoBehaviour {
 		destroyIsChecked = false;
 	}
 
+	// used by timer below and also by monster with death animation upon the animation finishes
 	public void customDestroy(){
 		Destroy (gameObject);
 	}
 
+	// This is used by monster and item
 	public void triggerDeath(){
-		if (hasDeadAnim) { // for monster that actually has death animation clip - usually set in editor by hand
-			GetComponent<Animator> ().SetBool ("isDead", true);
-			GlobalVars.speed = GlobalVars.speed + 0.02f; // ughh this is just to play with character speed for now
-		}
-		else { // for those that dont -> use my hand-made effect
-			StartCoroutine(timer());
+		bool goAheadAndDestroy = true;
+		// 1. Check with the monster controller first if its ok to destroy the monster
+		if (isMonster)
+			goAheadAndDestroy = monsterCheck ();
+
+		// 2. For item - this will always occur 
+		// 		for monster - destroy only if the checking test passes
+		if (goAheadAndDestroy) {
+			if (hasDeadAnim) { // for monster that actually has death animation clip - usually set in editor by hand
+				GetComponent<Animator> ().SetBool ("isDead", true);
+				GlobalVars.xoSpeed = GlobalVars.xoSpeed*1.05f; // ughh this is just to play with character speed for now
+			} else { // for those that dont -> use my hand-made effect
+				StartCoroutine (timerDestroy ());
+			}
 		}
 	}
 
-	// we're not using this for now
-	IEnumerator timer(){
+	// wrapper to handle different kinds of monsters destroy behaviors - right now we're using the name of the controller
+	//		of the monster to detect what kind of monster it is
+	bool monsterCheck(){
+		bool result = true; // default result
+
+		// 1. Cake Monsters - we have 3 type: normal, green - move faster and die only getting caught by bomb 3 times, and boss - spawn 2 new cakes
+		if (GetComponent<cakeController> () != null) {
+			string type = GetComponent<cakeController>().type;
+			if (type == "normal") result = true;
+			else if (type == "green") {
+				if (GetComponent<cakeController>().hitCount < 2){
+					result = false;
+					StartCoroutine(GetComponent<cakeController>().freeze());
+				}
+				else result = true;
+			}
+			else { // boss cake
+				result = true;
+				GameObject newCake1 = Instantiate (Resources.Load ("Prefabs/Monsters/Normal Cake Monster")) as GameObject;
+				GameObject newCake2 = Instantiate (Resources.Load ("Prefabs/Monsters/Green Cake Monster")) as GameObject;
+				newCake1.transform.position = gameObject.transform.position;
+				newCake2.transform.position = gameObject.transform.position;
+				newCake1.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(newCake1.transform.position.y)*(-1);
+				newCake2.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(newCake2.transform.position.y)*(-1);
+				StartCoroutine(newCake2.GetComponent<cakeController>().changeMovement());
+			}
+		}
+		return result;
+	}
+
+	// This is custom fading-effect for object being destroyed
+	IEnumerator timerDestroy(){
 		SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 		GetComponent<Animator>().enabled = false;
 		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.8f); 
@@ -57,18 +97,5 @@ public class Destroy : MonoBehaviour {
 		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.0f);
 		customDestroy ();
 	}
-
-
-	void OnTriggerEnter2D(Collider2D coll) {
-		Debug.Log ("called from "+gameObject.name + " - collided with "+ coll.gameObject.name);
-		StartCoroutine(secondtimer(coll.gameObject));
-	}
-	IEnumerator secondtimer(GameObject character){
-		yield return new WaitForSeconds(0.15f);
-		character.GetComponent<xoController> ().customDestroyCharacter ();
-	}
-
-
-
 
 }

@@ -1,0 +1,298 @@
+fileFormatVersion: 2
+guid: 25ff185fb33868b438c8cd162514ae80
+timeCreated: 1449552883
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: cake - boss_0
+    21300002: cake - boss_1
+    21300004: cake - boss_2
+    21300006: cake - boss_3
+    21300008: cake - boss_4
+    21300010: cake - boss_5
+    21300012: cake - boss_6
+    21300014: cake - boss_7
+    21300016: cake - boss_11
+    21300018: cake - boss_12
+    21300020: cake - boss_13
+    21300022: cake - boss_14
+    21300024: cake - boss_15
+    21300026: cake - boss_16
+    21300028: cake - boss_20
+    21300030: cake - boss_21
+    21300032: cake - boss_23
+    21300034: cake - boss_24
+    21300036: cake - boss_25
+    21300038: cake - boss_26
+    21300040: cake - boss_27
+    21300042: cake - boss_29
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 60
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: cake - boss_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_2
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_4
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_5
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_6
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_7
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 181
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_11
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_12
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_13
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_14
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_15
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_16
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 121
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_20
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_21
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_23
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_24
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_25
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_26
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_27
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cake - boss_29
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1
+        width: 60
+        height: 60
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

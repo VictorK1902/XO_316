@@ -139,9 +139,12 @@ public class bombController : MonoBehaviour {
 					}
 					notDone = false;
 				} 
-				else if(obstacleTag == "boundary"){ // map boundary
+				else if(obstacleTag == "actualMap"){ // map boundary // actualMap
 					Vector2 hitPoint = detectedObjects_no1[i].point;
-					spawnPos = new Vector3(Mathf.Floor(hitPoint.x),Mathf.Floor(hitPoint.y),0.0f);
+					if (direction == "left" || direction == "right")
+						spawnPos = new Vector3(Mathf.Round(hitPoint.x),Mathf.Floor(hitPoint.y),0.0f);
+					else 
+						spawnPos = new Vector3(Mathf.Floor(hitPoint.x),Mathf.Floor(hitPoint.y),0.0f);
 					notDone = false;
 				}
 				else if (obstacleTag == "monster" || obstacleTag == "item"){
@@ -183,7 +186,7 @@ public class bombController : MonoBehaviour {
 			//2. now we spawn exp sprites 
 			int count = 0;
 			// find how many sprites we need to spawn
-			if (obstacleTag == "nonDestructible" || obstacleTag == "destructible" || obstacleTag == "boundary")
+			if (obstacleTag == "nonDestructible" || obstacleTag == "destructible" || obstacleTag == "actualMap")
 				count = (int) Vector2.Distance(spawnPos,bombPos);
 			else  // "" by default - meaning all objects hit are either monster or character or bomb --> spawn all sprites equal to radius value
 				count = radius;
@@ -210,7 +213,7 @@ public class bombController : MonoBehaviour {
 			string obstacleTag = "";
 			for (int i = 0; i < detectedObjects_no2.Length;i++){
 				obstacleTag = detectedObjects_no2[i].collider.gameObject.tag;
-				if (obstacleTag == "nonDestructible" || obstacleTag == "destructible" || obstacleTag == "bomb" || obstacleTag == "boundary"){
+				if (obstacleTag == "nonDestructible" || obstacleTag == "destructible" || obstacleTag == "bomb" || obstacleTag == "actualMap"){
 					// do nothing - as these objects are definitely already handled during the first cast because they are perfectly aligned with grid snap
 				}
 				else if (obstacleTag == "monster" || obstacleTag == "item"){
@@ -250,21 +253,6 @@ public class bombController : MonoBehaviour {
 			theObject.GetComponent<Destroy> ().triggerDeath ();
 		}
 	}
-	/*
-	Vector3 calculateSpawnPosition(Vector3 givenPoint, string direction){
-		Vector3 result = Vector3.zero;
-		if (direction == "left"){
-			result = givenPoint + new Vector3(1.0f,0.0f,0.0f);
-		} else if (direction == "right"){
-			result = givenPoint + new Vector3(-1.0f,0.0f,0.0f);
-		} else if (direction == "up"){
-			result = givenPoint + new Vector3(0.0f,-1.0f,0.0f);
-		} else { // down
-			result = givenPoint + new Vector3(0.0f,1.0f,0.0f);
-		}
-		return result;
-	} // end
-	*/
 	Vector3 findUnitVector(string direction){
 		Vector3 result = Vector3.zero;
 		if (direction == "left"){
