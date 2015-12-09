@@ -1,0 +1,485 @@
+fileFormatVersion: 2
+guid: 41c7fb5c2659878439ba38a72a6871f8
+timeCreated: 1449624042
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: blue_drag_0
+    21300002: blue_drag_1
+    21300004: blue_drag_2
+    21300006: blue_drag_3
+    21300008: blue_drag_4
+    21300010: blue_drag_5
+    21300012: blue_drag_7
+    21300014: blue_drag_8
+    21300016: blue_drag_9
+    21300018: blue_drag_10
+    21300020: blue_drag_11
+    21300022: blue_drag_12
+    21300024: blue_drag_18
+    21300026: blue_drag_20
+    21300028: blue_drag_21
+    21300030: blue_drag_22
+    21300032: blue_drag_24
+    21300034: blue_drag_25
+    21300036: blue_drag_27
+    21300038: blue_drag_28
+    21300040: blue_drag_30
+    21300042: blue_drag_45
+    21300044: blue_drag_46
+    21300046: blue_drag_47
+    21300048: blue_drag_49
+    21300050: blue_drag_50
+    21300052: blue_drag_51
+    21300054: blue_drag_52
+    21300056: blue_drag_54
+    21300058: blue_drag_55
+    21300060: blue_drag_57
+    21300062: blue_drag_58
+    21300064: blue_drag_59
+    21300066: blue_drag_60
+    21300068: blue_drag_62
+    21300070: blue_drag_63
+    21300072: blue_drag_64
+    21300074: blue_drag_65
+    21300076: blue_drag_66
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 45
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: blue_drag_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_1
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_2
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_3
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_4
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_5
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_8
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_9
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_10
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_11
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_12
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_18
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 435
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_20
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 435
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_21
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 452
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_22
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 454
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_24
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 454
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_25
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 447
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_27
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 443
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_28
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 442
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_30
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 442
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_45
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 259
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_46
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 259
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_47
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 267
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_49
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 268
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_50
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 264
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_51
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 267
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_52
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 261
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_54
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 255
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_55
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 258
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_57
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 257
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_58
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 258
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_59
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 11
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_60
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 12
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_62
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 13
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_63
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 12
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_64
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 13
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_65
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 17
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue_drag_66
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 13
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

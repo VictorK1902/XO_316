@@ -14,7 +14,7 @@ public class xoController : MonoBehaviour {
 	Vector2 directionBeforeBlocked;
 	Vector2 targetPoint; // point to move to
 	public int maxBomb = 1;
-		
+	int count = 0;	
 	// Use this for initialization
 	void Start () {
 		rbody = GetComponent<Rigidbody2D> ();
@@ -30,8 +30,10 @@ public class xoController : MonoBehaviour {
 		GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(transform.position.y)*(-1);
 		// 1. Detect if player hits spacebar --> place a bomb
 		if (Input.GetKeyDown ("space")) {
+			count++;
 			GameObject dBomb = Instantiate (Resources.Load ("Prefabs/bomb")) as GameObject;
 			dBomb.transform.position = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),0.0f);
+			dBomb.name = "bomb clone " + count;
 			dBomb.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(dBomb.transform.position.y)*(-1);
 		}
 

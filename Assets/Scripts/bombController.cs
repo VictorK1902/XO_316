@@ -10,6 +10,7 @@ public class bombController : MonoBehaviour {
 	bool isTriggeredByDef;
 	float timedecrease;
 	public bool destroyIsChecked = false;
+	bool isFirstBomb;
 
 	// Use this for initialization
 	void Start () {
@@ -37,13 +38,14 @@ public class bombController : MonoBehaviour {
 		//Debug.Log (Time.deltaTime +" - "+timer);
 		if (timer < 0.0f) {
 			Debug.Log (gameObject.name +" is triggered by default");
-			customDestroyBomb(true, false, false, false, false, false);
+			customDestroyBomb(true, true, false, false, false, false, false);
 		}
 	}
 
-	public void customDestroyBomb(bool triggerByDefault, bool skipCenter, bool skipLeft, bool skipRight, bool skipUp, bool skipDown){
+	public void customDestroyBomb(bool firstbomb, bool triggerByDefault, bool skipCenter, bool skipLeft, bool skipRight, bool skipUp, bool skipDown){
 		// update whether this bomb detonate by default or by chain bombing
 		isTriggeredByDef = triggerByDefault;
+		isFirstBomb = firstbomb;
 		Debug.Log ("this is obj "+ gameObject.name + " - " + triggerByDefault.ToString() +"-"+isTriggeredByDef.ToString());
 		if (!isTriggeredByDef)
 			timedecrease = 0.0f; // turn off bomb timing - to avoid calling customdestroy more than once
@@ -72,8 +74,8 @@ public class bombController : MonoBehaviour {
 		if (!skipDown)
 			SpawnExplosionInGivenDirection (bombCenter, new Vector3 (0.0f, radius*(-1.0f)-0.4f,0.0f), "down", bombpos);
 
-		Debug.Log ("Rolling out. This is gameobject "+ gameObject.name + " and it is root bomb? "+isTriggeredByDef.ToString());
-		if (isTriggeredByDef) { // meaning this is the root bomb that starts the chain bomb
+		Debug.Log ("Rolling out. This is gameobject "+ gameObject.name + " and it is root bomb? "+(isTriggeredByDef||isFirstBomb));
+		if (isTriggeredByDef || isFirstBomb) { // meaning this is the root bomb that starts the chain bomb
 			string dtag = "";
 			Debug.Log("This is "+gameObject.name +" about to destroy " + toBeDestroyed.Count + " objects in <static> toBeDestroyed");
 			for (int i = 0; i <toBeDestroyed.Count; i++) {
@@ -169,13 +171,13 @@ public class bombController : MonoBehaviour {
 					if (!detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().destroyIsChecked) { // flag to make sure the object is destroyed only once
 						detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().destroyIsChecked = true;
 						if (direction == "left")
-							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false, true, false, true, false, false);
+							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false,false, true, false, true, false, false);
 						else if (direction == "right")
-							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false, true, true, false, false, false);
+							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false,false, true, true, false, false, false);
 						else if (direction == "up")
-							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false, true, false, false, false, true);
+							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false,false, true, false, false, false, true);
 						else // down
-							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false, true, false, false, true, false);
+							detectedObjects_no1[i].collider.gameObject.GetComponent<bombController>().customDestroyBomb(false,false, true, false, false, true, false);
 					}
 				}
 				else { 

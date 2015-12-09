@@ -1,0 +1,353 @@
+fileFormatVersion: 2
+guid: 07c8f230423c6ea4a94e32fe780e60b9
+timeCreated: 1449625154
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: flipped_blue_drag_1
+    21300002: flipped_blue_drag_2
+    21300004: flipped_blue_drag_3
+    21300006: flipped_blue_drag_4
+    21300008: flipped_blue_drag_5
+    21300010: flipped_blue_drag_6
+    21300012: flipped_blue_drag_7
+    21300014: flipped_blue_drag_8
+    21300016: flipped_blue_drag_9
+    21300018: flipped_blue_drag_10
+    21300020: flipped_blue_drag_11
+    21300022: flipped_blue_drag_12
+    21300024: flipped_blue_drag_43
+    21300026: flipped_blue_drag_44
+    21300028: flipped_blue_drag_50
+    21300030: flipped_blue_drag_51
+    21300032: flipped_blue_drag_53
+    21300034: flipped_blue_drag_54
+    21300036: flipped_blue_drag_55
+    21300038: flipped_blue_drag_56
+    21300040: flipped_blue_drag_59
+    21300042: flipped_blue_drag_60
+    21300044: flipped_blue_drag_62
+    21300046: flipped_blue_drag_63
+    21300048: flipped_blue_drag_64
+    21300050: flipped_blue_drag_65
+    21300052: flipped_blue_drag_66
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 45
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: flipped_blue_drag_1
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_2
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_3
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_4
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_5
+      rect:
+        serializedVersion: 2
+        x: 1657
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_6
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 895
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_7
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_8
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_9
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_10
+      rect:
+        serializedVersion: 2
+        x: 1523
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_11
+      rect:
+        serializedVersion: 2
+        x: 1661
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_12
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 765
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_43
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 260
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_44
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 257
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_50
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 267
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_51
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 266
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_53
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 265
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_54
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 266
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_55
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 264
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_56
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 258
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_59
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 12
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_60
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 13
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_62
+      rect:
+        serializedVersion: 2
+        x: 1159
+        y: 15
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_63
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 13
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_64
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 13
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_65
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 11
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: flipped_blue_drag_66
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 12
+        width: 135
+        height: 130
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

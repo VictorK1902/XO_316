@@ -79,6 +79,17 @@ public class Destroy : MonoBehaviour {
 				StartCoroutine(newCake2.GetComponent<cakeController>().changeMovement());
 			}
 		}
+
+		// 2. Boss Blue Drag
+		if (GetComponent<blueDragController> () != null) {
+			if (GetComponent<blueDragController> ().hitCount < 5){
+				GetComponent<blueDragController> ().hitCount++;
+				StartCoroutine(GetComponent<blueDragController> ().freeze());
+			}
+			else {
+
+			}
+		}
 		return result;
 	}
 
