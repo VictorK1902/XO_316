@@ -1,7 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// a controller script for common movement behavior of cake monster
+//	Controller for the Cake Monsters
+//	It moves normally. Everytime it hits a block, it changes direction
+//	
+//	Whenever it gets hit by the bomb, depending on what type of cake it is (based on color) 
+//		1. Red: dead immediately
+//		2. Green: has 3 healths, so player needs to hit it 3 times. And everytime it gets hit it moves faster
+//		3. Purple: dead immediately and spawn 1 red cake and 1 green cake
+//		All of these detections are done in Destroy script. This controller provides the methods to execute each scenarios.
+
 
 public class cakeController : MonoBehaviour {
 
@@ -15,7 +23,7 @@ public class cakeController : MonoBehaviour {
 	public bool isWalkingLeft; 
 	public bool movingUpDownFlag;
 	float direction;
-	bool stopMoving;
+	public bool stopMoving;
 	public int hitCount = 0; // used by green
 
 	// temp variables updated frequently
@@ -66,7 +74,7 @@ public class cakeController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		colliderTag = coll.collider.gameObject.tag;
-		Debug.Log (gameObject.name+" - "+colliderTag);
+		//Debug.Log (gameObject.name+" - "+colliderTag);
 		if (colliderTag == "destructible" || colliderTag == "nonDestructible" || colliderTag == "actualMap" || colliderTag == "bomb") {
 			randomNumber = Random.Range(0.0f,1.0f);
 			if (randomNumber <=0.5) { // either change vert-horz flags or simply change direction
@@ -80,7 +88,7 @@ public class cakeController : MonoBehaviour {
 			position = transform.position;
 			transform.position = new Vector3(Mathf.Round(position.x),Mathf.Round(position.y),0.0f);
 
-		} else if (colliderTag == "monster") { // allowing monsters to go thru each other
+		} else if (colliderTag == "monster" || colliderTag == "item") { // allowing monsters to go thru each other
 			Physics2D.IgnoreCollision (GetComponent<CircleCollider2D> (), coll.gameObject.GetComponent<CircleCollider2D> ());
 		} else {
 			Debug.Log (gameObject.name+" collides to object with tag "+colliderTag);
@@ -90,6 +98,7 @@ public class cakeController : MonoBehaviour {
 
 	// used by green cake
 	public IEnumerator freeze(){
+		Debug.Log (gameObject.name+" is hit ");
 		stopMoving = true;
 		anim.enabled = false;
 		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.7f); 

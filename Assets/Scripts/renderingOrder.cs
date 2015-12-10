@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// script to define sorting order of nondestructible obejects
+//	Controller script to define sorting order of nondestructible and destructible objects
+//	Sorting order basically makes sure that some object is rendered behind the other to makesure that everything appears
+//		as 3/4 perspective	
 
 public class renderingOrder : MonoBehaviour {
 

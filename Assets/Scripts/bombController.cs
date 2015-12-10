@@ -2,6 +2,27 @@
 using System.Collections;
 using System.Collections.Generic;
 
+//	A controller attached to each active bomb on the map - it can detonate under 2 scenarios
+//		1. Detonate by default if not affected by any outside forces (another bomb or monster special ability)
+//		2. Detonate because of outside forces:
+//				a. Triggered by another bomb due to be lying on the bomb explosion path of another bomb - This way the bomb turn off timer and detonate immediately	
+//				b. Triggered by monster special attack - which is detonate all active bombs on the map 
+//
+// How it works is:
+//		1. The bomb is instantiated, Start() gets called and set up several flags and variables, including timer and explosion raidus
+//		2. Upon triggered (by def or not) customDestroyBomb() gets called. This func does 2 big things
+//			a. Detect objects on the explosion path. This is done by the method from Physics2D called LineCastAll which basically draws an invisible line
+//					between 2 points and return all objects attached with a collider component. From here the controller will decide if it should destroy
+//					the object or not (if it chooses to destroy, it adds the object to a static list to destroy these laters). This ensures that in case where
+//					there is a chain of bomb, only the bomb detonate firsts in the chain gets to destroy the objects so that they are not deleted twice.
+//			b. After that, depending on the objects returned from above method, the controller will spawn explosion sprites (prefabs I made) to represent the visual
+//				of the explosion. The skipCenter, skipLeft,..etc are simply flags to let the controller know that if it needs to spawn the exp sprite in this direction
+//				or not, since there will defnitely be many duplicates during the scenario where there is a chain of bomb as discussed above
+//	Also a note when the controller detects objects to destroy, its likely that the item is being checked at least twice (scenario where there is a chain of bomb)
+//		so a flag called destroyIsChecked (contained within the Destroy script which is attached to most objects) is used to make sure that the object is marked only once 
+//		This bomb controller also has this flag. You can see below.
+
+
 public class bombController : MonoBehaviour {
 
 	public float timer;
@@ -53,6 +74,7 @@ public class bombController : MonoBehaviour {
 		gameObject.SetActive(false);
 		spawnExplosionSprite(skipCenter, skipLeft, skipRight, skipUp, skipDown);
 		Destroy(gameObject);
+		GlobalVars.bombCount--;
 	}
 
 	void spawnExplosionSprite(bool skipCenter, bool skipLeft, bool skipRight, bool skipUp, bool skipDown){
@@ -99,9 +121,9 @@ public class bombController : MonoBehaviour {
 		Vector3 spawnPos = Vector3.zero;
 		Vector3 unitVector = findUnitVector(direction);
 
-		Vector3 firstHitDestructiblePos = Vector3.zero; // used in case of theres destructible hit - to make sure 2nd 
-														// line cast doesnt go pass this point
-
+		Vector3 firstHitBlockPos = Vector3.zero;	// used in case of linecast hit a block - to make sure 2nd 
+													// line cast doesnt go pass this point
+		string obstacleTag = "";
 		// LineCastAll return all objects hit by the line from startPoint to endPoint
 		// we do 2 times for proper gameplay purpose
 
@@ -119,19 +141,17 @@ public class bombController : MonoBehaviour {
 				j++;
 			}
 		} else { // collide at least one obstacles
-			string obstacleTag = "";
-			bool notDone = true;
 
-			firstHitDestructiblePos = Vector3.zero; // used in case of theres destructible hit - to make sure 2nd line cast doesnt go pass this point
+			bool notDone = true;
 
 			//1. we look for the first terrain hit - this is the boundary to spawn exp sprites
 			for (int i = 0; i < detectedObjects_no1.Length && notDone;i++){
 				obstacleTag = detectedObjects_no1[i].collider.gameObject.tag;
 				if (obstacleTag == "nonDestructible" || obstacleTag == "destructible"){
 					spawnPos = detectedObjects_no1[i].collider.transform.position - unitVector;//calculateSpawnPosition(detectedObjects_no1[i].collider.transform.position, direction);
+					firstHitBlockPos = detectedObjects_no1[i].collider.gameObject.transform.position;
 					if (obstacleTag == "destructible"){
 						GameObject tmp = detectedObjects_no1[i].collider.gameObject;
-						firstHitDestructiblePos = tmp.transform.position;
 						if (!tmp.GetComponent<Destroy>().destroyIsChecked){ // flag to make sure the object added to the tobedestroyed list only once
 							tmp.GetComponent<Destroy>().destroyIsChecked = true;
 							toBeDestroyed.Add(tmp);
@@ -139,9 +159,10 @@ public class bombController : MonoBehaviour {
 							//printList(toBeDestroyed);
 						}
 					}
+
 					notDone = false;
 				} 
-				else if(obstacleTag == "actualMap"){ // map boundary // actualMap
+				else if(obstacleTag == "actualMap"){ // map boundary // actualMap - theres nothing after the boundary so we dont have to worry about limitting linecast range 2nd time below
 					Vector2 hitPoint = detectedObjects_no1[i].point;
 					if (direction == "left" || direction == "right")
 						spawnPos = new Vector3(Mathf.Round(hitPoint.x),Mathf.Floor(hitPoint.y),0.0f);
@@ -202,17 +223,17 @@ public class bombController : MonoBehaviour {
 		}
 
 		// B. Line cast no 2 - try to catch any obstacles not being caught yet. 
-		// if we catch a destructible the first time --> limit the radius to make sure line cast stay within this range
+		// if we catch a destructible or nondestructible the first time --> limit the radius to make sure line cast stay within this range
 		startPoint = findStartPointToLineCast (direction,bombCenter,-0.15f);
-		if (firstHitDestructiblePos != Vector3.zero) {
-			Vector3 newEnd = firstHitDestructiblePos - bombPos + new Vector3(unitVector.x*0.4f,unitVector.y*0.4f,0.0f);
-			Debug.Log("2nd line cast from "+gameObject.name+" "+bombPos.ToString("F3") + "-" + firstHitDestructiblePos.ToString("F3") + "-" + newEnd.ToString("F3"));
+		if (firstHitBlockPos != Vector3.zero) {
+			Vector3 newEnd = firstHitBlockPos - bombPos + new Vector3 (unitVector.x * 0.4f, unitVector.y * 0.4f, 0.0f);
+			Debug.Log ("2nd line cast from " + gameObject.name + " " + bombPos.ToString ("F3") + "-" + firstHitBlockPos.ToString ("F3") + "-" + newEnd.ToString ("F3"));
 			end = newEnd;
 		}
 		RaycastHit2D[] detectedObjects_no2 = Physics2D.LinecastAll(startPoint, startPoint + end);
 		// we dont need to spawn exp sprites again - just catch any monster not being caught yet on the path
 		if (detectedObjects_no2.Length != 0) {
-			string obstacleTag = "";
+			obstacleTag = "";
 			for (int i = 0; i < detectedObjects_no2.Length;i++){
 				obstacleTag = detectedObjects_no2[i].collider.gameObject.tag;
 				if (obstacleTag == "nonDestructible" || obstacleTag == "destructible" || obstacleTag == "bomb" || obstacleTag == "actualMap"){

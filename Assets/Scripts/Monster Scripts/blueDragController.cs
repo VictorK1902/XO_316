@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//	Controller for the Blue Dragon Monster = Boss
+//	Every time interval (const at first but will decrease every time it gets hit), one of the following could happen:
+//		1. It moves until its blocked by destructible or nondestructible objects. 
+//		2. Perform special ability = Smash the ground and detonate all active bombs on the map immediately
+//	Whenever it gets hit by the bomb, it looses one health (max at first is 5), and its attribute is updated. 
+//		This is done in the freeze() method which is called by the Destroy script also attached to this monster. 
+//			Basically the method creates the fading effect and then return the monster back to its normal visual state
+
 public class blueDragController : MonoBehaviour {
 
 	Animator anim;
@@ -10,12 +18,11 @@ public class blueDragController : MonoBehaviour {
 
 	// several flags used to control movement
 	Vector3 position; // of the monster
-	public bool isWalkingLeft, isWalkingRight; 
 	public bool movingUpDownFlag;
 	float direction; // unit in calculating position : -1 = move left/down, 1 = move right/up
 	int idleValue; // -1 = left, 1 = right
 	bool isMoving;
-	bool isDying;
+	public bool isDying;
 	public int hitCount = 5; 
 	public float idleTimer = 3.0f; // monster stay idle for 3 seconds then move
 	float idleRate = 0.0f;
@@ -32,8 +39,6 @@ public class blueDragController : MonoBehaviour {
 		speed = GlobalVars.monsterSpeed * 2;
 
 		position = transform.position;
-		isWalkingLeft = anim.GetBool ("isWalkingLeft"); // false by def
-		isWalkingRight = anim.GetBool ("isWalkingRight"); // false by def
 		idleValue = anim.GetInteger ("idle"); // -1 by def = idle left
 
 		if (idleValue == -1)
@@ -131,11 +136,12 @@ public class blueDragController : MonoBehaviour {
 					//newPos = offsetPosPerStuck(newPos);
 				transform.position = newPos;
 				
-			} else if (colliderTag == "monster") { // allowing monsters to go thru each other
+			} else if (colliderTag == "monster" || colliderTag == "item") { // allowing monsters to go thru each other
 				Physics2D.IgnoreCollision (GetComponent<CircleCollider2D> (), coll.gameObject.GetComponent<CircleCollider2D> ());
 			} else if(colliderTag == "bomb"){
 				Physics2D.IgnoreCollision (GetComponent<CircleCollider2D> (), coll.gameObject.GetComponent<CircleCollider2D> ());
 				Destroy(coll.gameObject);
+				if (hitCount>0) hitCount--;
 				Debug.Log ("Yummy!!!");
 			} else {
 				Debug.Log (gameObject.name + " collides to object with tag " + colliderTag);
@@ -151,10 +157,9 @@ public class blueDragController : MonoBehaviour {
 	public void attack(){
 		GameObject[] allBombs = GameObject.FindGameObjectsWithTag ("bomb");
 		if (allBombs != null) {
-			Debug.Log ("Out "+ allBombs.Length);
+			Debug.Log ("Active bombs count "+ allBombs.Length);
 			foreach (GameObject dbomb in allBombs){
 				if (dbomb != null) {
-					Debug.Log ("In "+ dbomb.name);
 					if (!dbomb.GetComponent<bombController>().destroyIsChecked)
 						dbomb.GetComponent<bombController>().customDestroyBomb(true,false, false, false, false, false, false); // spawn all sprites
 				}
@@ -168,7 +173,7 @@ public class blueDragController : MonoBehaviour {
 		idleTimer = 3.0f - idleRate;
 	}
 
-	// used by green cake
+	// freeze effect for monster when hit - then update its attribute
 	public IEnumerator freeze(){
 		isDying = true;
 		anim.enabled = false;
@@ -179,9 +184,12 @@ public class blueDragController : MonoBehaviour {
 		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.2f); 
 		yield return new WaitForSeconds(0.35f);
 		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,1.0f);
-		speed *= 1.15f;
-		rageRate += 0.1f;
-		idleRate += 0.25f;
+
+		//update attributes
+		speed *= 1.25f;
+		rageRate += 0.15f;
+		rageRate = Mathf.Min (rageRate,0.8f); // capped rageRate at 0.8f
+		idleRate += 0.4f;
 		anim.enabled = true;
 		isDying = false;
 		GetComponent<Destroy> ().destroyIsChecked = false;

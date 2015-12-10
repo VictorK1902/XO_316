@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// A destroy interface used by monster, item and destructibel terrain
-// even though destructible terrain barely used this - it only used the destroyischecked flag
+//	A destroy Interface used by monster, item and destructible terrain
+//	Even though destructible terrain barely used this - It only used the destroyischecked flag..
+//	Some notables methods includes:
+//		1. triggerDeath(): beginning state of destroying an object - used by monster and item. If monster has a animation for being dead it will use that
+//			If not, it will use my hand made method timerDestroy() 
+//		2. timerDestroy(): a custom method to repesent the fading effect of the object as its being destroyed.
+//		3. monsterCheck(): a method to control and determine what to do with the attaching monster (different monsters have different controllers)
+//
 
 public class Destroy : MonoBehaviour {
 
@@ -83,11 +89,8 @@ public class Destroy : MonoBehaviour {
 		// 2. Boss Blue Drag
 		if (GetComponent<blueDragController> () != null) {
 			if (GetComponent<blueDragController> ().hitCount < 5){
-				GetComponent<blueDragController> ().hitCount++;
+				Debug.Log ("hitcount "+GetComponent<blueDragController> ().hitCount);
 				StartCoroutine(GetComponent<blueDragController> ().freeze());
-			}
-			else {
-
 			}
 		}
 		return result;
@@ -96,7 +99,7 @@ public class Destroy : MonoBehaviour {
 	// This is custom fading-effect for object being destroyed
 	IEnumerator timerDestroy(){
 		SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-		GetComponent<Animator>().enabled = false;
+		if (isMonster) GetComponent<Animator>().enabled = false;
 		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.8f); 
 		yield return new WaitForSeconds(0.25f);
 		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.6f); 
@@ -108,5 +111,4 @@ public class Destroy : MonoBehaviour {
 		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.0f);
 		customDestroy ();
 	}
-
 }
