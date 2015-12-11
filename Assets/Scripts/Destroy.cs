@@ -49,6 +49,8 @@ public class Destroy : MonoBehaviour {
 		// 2. For item - this will always occur 
 		// 		for monster - destroy only if the checking test passes
 		if (goAheadAndDestroy) {
+			if (isMonster)
+				GameObject.Find("XO_character").gameObject.GetComponent<xoController>().monsterCount--;
 			if (hasDeadAnim) { // for monster that actually has death animation clip - usually set in editor by hand
 				GetComponent<Animator> ().SetBool ("isDead", true);
 				GlobalVars.xoSpeed = GlobalVars.xoSpeed*1.05f; // ughh this is just to play with character speed for now

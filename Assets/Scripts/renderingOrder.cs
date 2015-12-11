@@ -9,15 +9,22 @@ public class renderingOrder : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameObject[] nondestructibleObjects = GameObject.FindGameObjectsWithTag ("nonDestructible");
-		if (nondestructibleObjects != null) {
-			foreach (GameObject go in nondestructibleObjects){
+		GameObject[] returnedObjects = GameObject.FindGameObjectsWithTag ("nonDestructible");
+		if (returnedObjects != null) {
+			foreach (GameObject go in returnedObjects){
 				go.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(go.transform.position.y)*(-1);
 			}
 		}
-		nondestructibleObjects = GameObject.FindGameObjectsWithTag ("destructible");
-		if (nondestructibleObjects != null) {
-			foreach (GameObject go in nondestructibleObjects){
+		returnedObjects = GameObject.FindGameObjectsWithTag ("destructible");
+		if (returnedObjects != null) {
+			foreach (GameObject go in returnedObjects){
+				go.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(go.transform.position.y)*(-1);
+			}
+		}
+
+		returnedObjects = GameObject.FindGameObjectsWithTag ("item");
+		if (returnedObjects != null) {
+			foreach (GameObject go in returnedObjects){
 				go.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(go.transform.position.y)*(-1);
 			}
 		}

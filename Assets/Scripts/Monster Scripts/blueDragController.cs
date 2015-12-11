@@ -143,6 +143,7 @@ public class blueDragController : MonoBehaviour {
 				Destroy(coll.gameObject);
 				if (hitCount>0) hitCount--;
 				Debug.Log ("Yummy!!!");
+				GlobalVars.bombCount--;
 			} else {
 				Debug.Log (gameObject.name + " collides to object with tag " + colliderTag);
 			}

@@ -26,7 +26,6 @@ public class fading : MonoBehaviour {
 	void OnLevelWasLoaded(){
 		Debug.Log ("just loaded "+ Application.loadedLevelName);
 		beginFade (-1);
-		Debug.Log ("done");
 	}
 
 	public IEnumerator timeFading(){

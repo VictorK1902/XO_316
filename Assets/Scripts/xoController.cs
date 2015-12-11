@@ -13,6 +13,7 @@ public class xoController : MonoBehaviour {
 	public Rigidbody2D rbody;
 	public bool destroyIsChecked = false; // a flag to make sure that only one instance of bomb/monster get to trigger death of character 
 											// in case multiple boms/monster try to destroy character 
+	public int monsterCount;
 	SpriteRenderer spriteRenderer;
 	Vector2 directionBeforeBlocked;
 	Vector2 targetPoint; // point to move to
@@ -29,11 +30,23 @@ public class xoController : MonoBehaviour {
 		anim.SetFloat ("input_x", 0.0f);
 		anim.SetFloat ("input_y", -1.0f);
 		speed = GlobalVars.xoSpeed;
+
+		GameObject[] allMonsters = GameObject.FindGameObjectsWithTag ("monster");
+		monsterCount = allMonsters.Length; Debug.Log ("Number of monsters "+monsterCount);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(transform.position.y)*(-1);
+		if (monsterCount == 0 && gameObject !=null ) { // start new level when all monsters dead and player still alive
+			if (Application.loadedLevel < 1)
+				StartCoroutine (transitionToNextLevel());
+			else {
+				Debug.Log ("You Won!");
+			}
+		}
+
+
 		// 1. Detect if player hits spacebar --> place a bomb
 		if (Input.GetKeyDown ("space")) {
 			Debug.Log (GlobalVars.bombCount +"-"+ GlobalVars.maxBomb);
@@ -79,9 +92,9 @@ public class xoController : MonoBehaviour {
 		yield return new WaitForSeconds(0.25f);
 		spriteRenderer.color = new Color (3.0f,1.0f,1.0f,0.2f); 
 		yield return new WaitForSeconds(0.25f);
-		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.0f); 
-		pauseGame ();
+		spriteRenderer.color = new Color (1.0f,1.0f,1.0f,0.0f);
 		Destroy (gameObject);
+		pauseGame ();
 	}
 
 	void pauseGame(){
@@ -93,7 +106,7 @@ public class xoController : MonoBehaviour {
 				pauseMonster(go);
 			}
 		}
-		//canvas.SetActive (true);
+		canvas.SetActive (true);
 	}
 
 	public void pauseMonster(GameObject go){
@@ -101,11 +114,16 @@ public class xoController : MonoBehaviour {
 			go.GetComponent<cakeController> ().stopMoving = true;
 		}
 		if (go.GetComponent<blueDragController> () != null) {
-			go.GetComponent<blueDragController> ().isDying = true; // kinda cheating since its not theoretically "dying" - but simply stop moving- but since
+			go.GetComponent<blueDragController> ().isDying = true; // kinda cheating since it doesnt theoretically mean "dying" - but simply stop moving- but since
 																	// I used this flag to stop moving in blue drag so
 		}
 	}
-	
+
+	IEnumerator transitionToNextLevel(){
+		yield return new WaitForSeconds(2.0f);
+		StartCoroutine (GameObject.Find ("Fade").GetComponent<fading> ().timeFading ());
+	}
+
 	void OnCollisionEnter2D(Collision2D coll) {
 		Debug.Log ("Player collided with "+coll.collider.name + "-" +coll.collider.tag);
 		if (coll.gameObject.tag == "monster") {
