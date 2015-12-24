@@ -49,8 +49,13 @@ public class Destroy : MonoBehaviour {
 		// 2. For item - this will always occur 
 		// 		for monster - destroy only if the checking test passes
 		if (goAheadAndDestroy) {
-			if (isMonster)
-				GameObject.Find("XO_character").gameObject.GetComponent<xoController>().monsterCount--;
+			if (isMonster) {
+				GameObject go = GameObject.Find("XO_character");
+				if (go!=null){
+					GameObject.Find("XO_character").GetComponent<xoController>().monsterCount--;
+					Debug.Log("MonsterCount "+ GameObject.Find("XO_character").gameObject.GetComponent<xoController>().monsterCount);
+				}
+			}
 			if (hasDeadAnim) { // for monster that actually has death animation clip - usually set in editor by hand
 				GetComponent<Animator> ().SetBool ("isDead", true);
 				GlobalVars.xoSpeed = GlobalVars.xoSpeed*1.05f; // ughh this is just to play with character speed for now
@@ -85,6 +90,8 @@ public class Destroy : MonoBehaviour {
 				newCake1.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(newCake1.transform.position.y)*(-1);
 				newCake2.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(newCake2.transform.position.y)*(-1);
 				StartCoroutine(newCake2.GetComponent<cakeController>().changeMovement());
+				GameObject.Find("XO_character").GetComponent<xoController>().monsterCount++;
+				GameObject.Find("XO_character").GetComponent<xoController>().monsterCount++;
 			}
 		}
 
